@@ -3,9 +3,7 @@
 #define r_brainfuck_size 1001
 #define r_loop_stack_size 124
 
-#define r_eof putchar('\n')
-
-static void r_brainfuck_interpreter_function(char* r_program_pointer, char* arguments_pointer) {
+static int r_brainfuck_interpreter_function(char* r_program_pointer, char* arguments_pointer) {
     char brainfuck[r_brainfuck_size] = { 0 };
     char* brainfuck_pointer = &brainfuck[r_brainfuck_size / 2];
 
@@ -46,19 +44,18 @@ static void r_brainfuck_interpreter_function(char* r_program_pointer, char* argu
             continue;
         }
         continue;
-    }
+    } return 0;
 }
 
 int main(int argc, char *argv[]) {
     if (argc <= 1) {
-        printf("ERROR USAGE\n");
+        printf("Usage Error: BRAINFUCK_INTERPRETER <brainfuck_code> [<args>...](optional)\n");
+        return 1;
     }
 
     char* program_pointer = argv[1];
     char* arguments_pointer = { 0 };
+
     if (argc >= 3) arguments_pointer = argv[2];
-
-    r_brainfuck_interpreter_function(program_pointer, arguments_pointer); r_eof;
-
-    return 0;
+    return r_brainfuck_interpreter_function(program_pointer, arguments_pointer);
 }
