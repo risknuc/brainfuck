@@ -1,0 +1,21 @@
+Implementation of a Brainfuck interpreter
+
+Here's a simple Brainfuck interpreter written 
+entirely in C. It's worth mentioning that 
+Brainfuck is not a serious programming language; 
+it's more of a tool for learning C and pointers. 
+It really helps to understand these concepts in 
+practice. Additionally, it is provided as a 
+command-line tool:
+
+    BRAINFUCK_INTERPRETER <brainfuck_code> [<args>...] (optional)
+
+The interpreter takes Brainfuck code, which is 
+better written in quotes, as well as arguments 
+for the code that are used in the key sign. 
+Here’s the command to compile the project using gcc:
+
+    gcc -g -std=c11 brainfuck_interpreter.c -o BRAINFUCK_INTERPRETER
+
+Congratulations! You now have a Brainfuck interpreter 
+on your PC.
